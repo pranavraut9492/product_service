@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-service
+  labels:
+    app: product-service
+    kubernetes.azure.com/generator: devhub
+  namespace: namespace-workflow-1735560918746
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product-service
+  template:
+    metadata:
+      labels:
+        app: product-service
+    spec:
+      containers:
+        - name: product-service
+          image: mycontainerregistrypranav.azurecr.io/image-workflow-1735560918746:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
