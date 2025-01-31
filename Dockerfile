@@ -2,7 +2,6 @@ FROM openjdk:21
 RUN mkdir /app
 WORKDIR /app
 
-ADD ./build/libs/product-0.0.1-SNAPSHOT.jar /app/app.jar
-
+COPY ./build/libs/product-0.0.1-SNAPSHOT.jar product-0.0.1-SNAPSHOT.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "product-0.0.1-SNAPSHOT.jar"]
